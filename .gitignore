@@ -167,3 +167,5 @@ GitHub.sublime-settings
 
 apioutputs.json
 test.py
+
+meal_api/__pycache__
