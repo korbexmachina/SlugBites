@@ -6,6 +6,7 @@ from .models import foodItem
 def index(response) -> HttpResponse:
     return HttpResponse("<h1>Hello world!<h1>")
 
+# TODO: fix this
 def food(response) -> HttpResponse:
-    ls = foodItem.name() # This should be a list of all food items int the database
+    ls = str(foodItem) # This should be a list of all food items int the database
     return HttpResponse("<h1>Food:</h1><br></br>" %(ls.name)) # This should display said items
