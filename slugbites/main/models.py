@@ -8,7 +8,7 @@ class foodItems(models.Model):
     eggs = models.BooleanField()
     milk = models.BooleanField()
     vegan = models.BooleanField()
-    gluten = models.BooleanField()
+    gluten = models.BooleanField() # True means gluten free
     halal = models.BooleanField()
     unknown = models.BooleanField()
     time = models.BooleanField()
