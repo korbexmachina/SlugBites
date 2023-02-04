@@ -14,4 +14,4 @@ def index(response) -> HttpResponse:
     return render(response, "main/base.html", {})
 
 def food(response) -> HttpResponse:
-    return render(response, "main/food.html", {"food":get_data().data}) # This should display said items
+    return render(response, "main/food.html", {"food":get_data()}) # This should display said items
