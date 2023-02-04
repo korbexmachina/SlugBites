@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class foodItems(models.Model):
+class foodItem(models.Model):
     name = models.CharField(max_length=200)
     veggie = models.BooleanField()
     soy = models.BooleanField()
