@@ -102,3 +102,4 @@ class AllData:
         pass
 
     def get_day(offset=0) -> List:
+        pass
