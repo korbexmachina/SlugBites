@@ -68,7 +68,7 @@ class Meal:
 
 
 def get_data() -> AllData:
-    return MealData.from_api(sync_pull(testing=True))
+    return MealData.from_api(sync_pull(testing=False))
 
 
 class MealData(list):
