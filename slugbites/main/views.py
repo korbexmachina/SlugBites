@@ -6,5 +6,5 @@ from .models import foodItem
 def index(response) -> HttpResponse:
     return HttpResponse("<h1>Hello world!<h1>")
 
-def v1(response0) -> HttpResponse:
+def food(response) -> HttpResponse:
     return HttpResponse("<h1>Success!<h1>")
