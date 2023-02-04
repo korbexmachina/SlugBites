@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def index(response) -> HttpResponse:
     return HttpResponse("<h1>Hello world!<h1>")
+
+def v1(response0) -> HttpResponse:
+    return HttpResponse("<h1>Success!<h1>")
