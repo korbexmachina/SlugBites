@@ -13,7 +13,7 @@ import datetime
 import requests
 from dataclasses import dataclass
 
-from typing import Dict
+from typing import Dict, Any
 
 
 API_LINK = "https://ucsc.cc/api"
@@ -56,6 +56,7 @@ class Meal:
     date: datetime.date
     tags: List[str]
     location: str
+    category: str
     chow_time: str  # options are Breakfast,Lunch, Dinner,Late Night
 
     def __str__(self) -> str:
@@ -63,22 +64,22 @@ class Meal:
 
 
 def get_data() -> AllData:
-    return AllData(sync_pull())
+    return MealData.from_api(sync_pull(testing=True))
 
 
-class AllData:
-    def __init__(self, data: List[Dict]) -> None:
-        self.data = self.parse_data(data)
-        print(len(self.data))
+class MealData(list):
+    def __init__(self, data=list[Meal]) -> None:
+        super().__init__(data)
 
-    def parse_data(self, data: List[Dict]) -> List[Meal]:
-        """Parsing data from the api and outputs it as a list of meals
+    @classmethod
+    def from_api(cls, data: List[Dict]) -> MealData:
+        """Converts data into Mealdata
 
         Args:
-            data (List[Dict]): datas
+            data (List[Dict]): pulled data
 
         Returns:
-            List[Meal]: list of meals within the 7 day period
+            MealData: MealData Object
         """
         r = []
         for days in data:
@@ -89,16 +90,23 @@ class AllData:
                 for m in halls['meals']:
                     curr_time = m['meal']
                     for c in m['cats']:
+                        curr_category = c['cat']
                         for foods in c['foods']:
                             r.append(Meal(
                                 name=foods['name'],
                                 date=curr_date,
                                 tags=list(foods['legend'].keys()),
                                 location=curr_hall,
+                                category=curr_category,
                                 chow_time=curr_time))
-        return r
+        return MealData(r)
 
-    def _get(tag: str) -> List[Meals]:
-        pass
+    def get_day(self, offset=0) -> MealData:
+        target_day = datetime.date.today() + datetime.timedelta(days=offset)
+        return MealData(filter(lambda x: x.date == target_day, self))
 
-    def get_day(offset=0) -> List:
+    def get_name(self, name: str) -> MealData:
+        return MealData(filter(lambda x: x.name == name, self))
+
+    def get_tags(self, tags: str) -> MealData:
+        return MealData(self)
