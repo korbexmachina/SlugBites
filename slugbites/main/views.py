@@ -4,7 +4,7 @@ from .models import foodItem
 # Create your views here.
 
 def index(response) -> HttpResponse:
-    return render(response,"main/base.html", {})
+    return render(response, "main/base.html", {})
 
 # TODO: fix this
 def food(response) -> HttpResponse:
