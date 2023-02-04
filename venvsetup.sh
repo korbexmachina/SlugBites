@@ -1,4 +1,9 @@
 #!/bin/bash
+# presetting the activate function
+activate () {
+    source $PWD/venv/bin/activate
+}
+
 # check if python3 exists
 if ! [[ $(python3 --version) =~ ^Python\ 3* ]]
 then
