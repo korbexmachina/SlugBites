@@ -36,3 +36,6 @@ if [[ ! -f apioutputs.json ]];
 then
     curl https://ucsc.cc/api -o apioutputs.json
 fi
+
+# edit PATH
+export PYTHONPATH=$PWD/slugbites/
