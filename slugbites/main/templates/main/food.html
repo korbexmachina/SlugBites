@@ -7,8 +7,11 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
     {% block content %}
         <h1>Full Menu</h1>
         <ul>
-            {% for item in food %}
-                <li>{{item}}:{{item.tags}}</li>
+            {% for meal, items in food.items %}
+                <h2>{{meal}}</h2>
+                {% for item in items %}
+                    <li>{{item}}</li>
+                {% endfor %}
             {% endfor %}
         </ul>
     {% endblock %}
