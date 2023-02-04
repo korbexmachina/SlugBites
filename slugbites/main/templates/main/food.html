@@ -5,5 +5,10 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 {% extends "main/base.html" %}
 
     {% block content %}
-        {{food}}
+        <h1>Full Menu</h1>
+        <ul>
+            {% for item in food %}
+                <li>{{item}}</li>
+            {% endfor %}
+        </ul>
     {% endblock %}
