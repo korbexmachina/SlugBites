@@ -20,4 +20,4 @@ def home(response) -> HttpResponse:
     return render(response, "main/home.html", {"food": get_data()})
 
 def food(response) -> HttpResponse:
-    return render(response, "main/food.html", {"food":food_data.full_menu()}) # This should display said items
+    return render(response, "main/food.html", {"food":food_data.full_menu()}) # Displays all possible menu items

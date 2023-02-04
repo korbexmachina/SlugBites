@@ -133,6 +133,7 @@ venv/
 ENV/ 
 env.bak/ 
 venv.bak/ 
+app-env
 
 # mkdocs documentation 
 /site 
