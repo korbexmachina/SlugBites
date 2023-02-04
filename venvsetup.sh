@@ -32,4 +32,7 @@ pip install --upgrade pip;
 pip install -r requirements.txt;
 
 # curls api to apioutputs
-curl https://ucsc.cc/api >> apioutputs.json
+if [[ ! -f apioutputs.json ]];
+then
+    curl https://ucsc.cc/api -o apioutputs.json
+fi
