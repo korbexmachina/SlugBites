@@ -10,6 +10,7 @@ import asyncio
 import json
 import aiohttp
 import datetime
+import requests
 from dataclasses import dataclass
 
 from typing import Dict
@@ -18,7 +19,7 @@ from typing import Dict
 API_LINK = "https://ucsc.cc/api"
 
 
-async def pull(testing=False) -> dict:
+async def async_pull(testing=False) -> dict:
     """Pulls current api data (asyncronously)
 
     Args:
@@ -34,6 +35,20 @@ async def pull(testing=False) -> dict:
             return await resp.json()
 
 
+def sync_pull(testing=False) -> dict:
+    """Pulls current api data syncronously
+
+    Args:
+        testing (bool, optional): Defines whether testing is in progress. Defaults to False.
+
+    Returns:
+        dict: pulled json file
+    """
+    if testing:
+        return json.loads(open("apioutputs.json").read())
+    return requests.get(API_LINK).json()
+
+
 @dataclass
 class Meal:
     """Class for keeping track of each meal"""
@@ -47,9 +62,14 @@ class Meal:
         return f"{self.name}"
 
 
+def get_data() -> AllData:
+    return AllData(sync_pull())
+
+
 class AllData:
     def __init__(self, data: List[Dict]) -> None:
         self.data = self.parse_data(data)
+        print(len(self.data))
 
     def parse_data(self, data: List[Dict]) -> List[Meal]:
         """Parsing data from the api and outputs it as a list of meals
@@ -70,6 +90,6 @@ class AllData:
                     curr_time = m['meal']
                     for c in m['cats']:
                         for foods in c['foods']:
-                            r.append(Meal(food['name'], curr_date, list(
+                            r.append(Meal(foods['name'], curr_date, list(
                                 foods['legend'].keys()), curr_hall, curr_time))
         return r
