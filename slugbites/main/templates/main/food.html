@@ -9,7 +9,7 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
         <ul>
             {% for item in food %}
                 {% if "veggie" in item.tags and "gluten" in item.tags%}
-                    <li>{{item}}</li>
+                    <li>{{item}}:{{item.tags}}</li>
                 {% endif %}
             {% endfor %}
         </ul>
