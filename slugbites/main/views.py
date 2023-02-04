@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import foodItem
-from api import get_data
+from meal_api import get_data
 # Create your views here.
 
 def index(response) -> HttpResponse:
