@@ -38,4 +38,4 @@ then
 fi
 
 # edit PATH
-export PYTHONPATH=$PWD/slugbites/
+export PYTHONPATH=$PWD/slugbites/src
