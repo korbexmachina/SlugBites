@@ -4,11 +4,7 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 
 {% extends "main/base.html" %}
 
-    {% block content %}
-        <h1>Full Menu</h1>
-        <ul>
-            {% for item in food %}
-                <li>{{item}}:{{item.tags}}</li>
-            {% endfor %}
-        </ul>
-    {% endblock %}
+{% block content %}
+<h1>SlugBites</h1>
+<a href="/food">Full Menu</a>
+{% endblock %}
