@@ -7,5 +7,5 @@ def index(response) -> HttpResponse:
     return HttpResponse("<h1>Hello world!<h1>")
 
 def food(response) -> HttpResponse:
-    ls = foodItem.all() # This should be a list of all food items int the database
-    return HttpResponse("<h1>Food:<h1>" %(ls.name)) # This should display said items
+    ls = foodItem.name() # This should be a list of all food items int the database
+    return HttpResponse("<h1>Food:</h1><br></br>" %(ls.name)) # This should display said items
