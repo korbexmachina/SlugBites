@@ -169,3 +169,6 @@ apioutputs.json
 test.py
 
 meal_api/__pycache__
+
+# will remove from gitignore later
+tests/
