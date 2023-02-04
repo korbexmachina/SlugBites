@@ -78,7 +78,7 @@ class MealData(list):
     locations = {'Crown/Merrill', 'College Nine/John R Lewis',
                  'Porter/Kresge', 'Cowell/Stevenson'}
 
-    def __init__(self, data=list[Meal]) -> None:
+    def __init__(self, data: List[Meal] = []) -> None:
         super().__init__(data)
 
     @classmethod
@@ -133,6 +133,20 @@ class MealData(list):
             MealData: meal list
         """
         return MealData(filter(lambda x: x.name == name, self))
+
+    def get_names(self, names: List[str]) -> MealData:
+        """Get meals with the name equal to any of the names
+
+        Args:
+            names (List[str]): names that are wanted
+
+        Returns:
+            MealData: meal list
+        """
+        r = MealData()
+        for i in names:
+            r.extend(self.get_name(i))
+        return r
 
     def get_tags(self, tags: List[str]) -> MealData:
         """Get only meals with all tags within tags
@@ -215,3 +229,14 @@ class MealData(list):
         r['Breakfast'].sort()
         r['Everything Else'].sort()
         return r
+
+    def search(self, s: str) -> MealData:
+        """Searches for a match string
+
+        Args:
+            s (str): string
+
+        Returns:
+            MealData: meal data
+        """
+        return MealData(filter(lambda x: s.lower() in x.name.lower(), self))
