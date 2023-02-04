@@ -1,4 +1,16 @@
+"""
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at https://mozilla.org/MPL/2.0/.
+"""
 from __future__ import annotations
+from typing import Dict, Any, List
+from dataclasses import dataclass
+import requests
+import datetime
+import aiohttp
+import json
+import asyncio
 #! usr/bin/env/python3
 """
 TODO: Docstring to describe what this file does
@@ -6,14 +18,6 @@ TODO: Docstring to describe what this file does
 __author__ = "Korben Tompkin, Kayla Barker and Cheuk Pui Lam"
 __licence__ = "MPL 2.0"
 __version__ = "0.0.1"
-import asyncio
-import json
-import aiohttp
-import datetime
-import requests
-from dataclasses import dataclass
-
-from typing import Dict, Any
 
 
 API_LINK = "https://ucsc.cc/api"
@@ -56,8 +60,8 @@ class Meal:
     date: datetime.date
     tags: List[str]
     location: str
-    category: str
     chow_time: str  # options are Breakfast,Lunch, Dinner,Late Night
+    category: str
 
     def __str__(self) -> str:
         return f"{self.name}"
@@ -68,6 +72,12 @@ def get_data() -> AllData:
 
 
 class MealData(list):
+    flags = {'treenut', 'shellfish', 'vegan', 'veggie', 'beef', 'soy', 'gluten',
+             'halal', 'unknown', 'milk', 'nuts', 'pork', 'fish', 'alcohol', 'sesame', 'eggs'}
+    # only *gluten is flag gluten free
+    locations = {'Crown/Merrill', 'College Nine/John R Lewis',
+                 'Porter/Kresge', 'Cowell/Stevenson'}
+
     def __init__(self, data=list[Meal]) -> None:
         super().__init__(data)
 
@@ -97,16 +107,95 @@ class MealData(list):
                                 date=curr_date,
                                 tags=list(foods['legend'].keys()),
                                 location=curr_hall,
-                                category=curr_category,
-                                chow_time=curr_time))
+                                chow_time=curr_time,
+                                category=curr_category))
         return MealData(r)
 
     def get_day(self, offset=0) -> MealData:
+        """Gets all data from certain day
+
+        Args:
+            offset (int, optional): day difference from "today". Defaults to 0.
+
+        Returns:
+            MealData: meal list
+        """
         target_day = datetime.date.today() + datetime.timedelta(days=offset)
         return MealData(filter(lambda x: x.date == target_day, self))
 
     def get_name(self, name: str) -> MealData:
+        """Gets only meals with the name equal to name
+
+        Args:
+            name (str): meal name we're looking for
+
+        Returns:
+            MealData: meal list
+        """
         return MealData(filter(lambda x: x.name == name, self))
 
-    def get_tags(self, tags: str) -> MealData:
-        return MealData(self)
+    def get_tags(self, tags: List[str]) -> MealData:
+        """Get only meals with all tags within tags
+
+        Args:
+            tags (List[str]): list of tags we want 
+
+        Returns:
+            MealData: meal lsit
+        """
+        return MealData(filter(lambda x: all(i in x.tags for i in tags), self))
+
+    def get_location(self, location: List[str]) -> MealData:
+        """Get only meals at given dining halls
+
+        Args:
+            location (List[str]): list of dining halls
+
+        Returns:
+            MealData: meal list
+        """
+        return MealData(filter(lambda x: x.location in location, self))
+
+    def get_chow_time(self, time: str) -> MealData:
+        """Get only meals at chow time
+
+        Args:
+            time (str): chow time, options are Breakfast, Lunch, Dinner, and Late Night
+
+        Returns:
+            MealData: meal list
+        """
+        return MealData(filter(lambda x: x.chow_time == time, self))
+
+    def get_category(self, category: List[str]) -> MealData:
+        """Get only meals at category
+
+        Args:
+            category (List[str]): list of categories we are going to write
+
+        Returns:
+            MealData: meal data
+        """
+        return MealData(filter(lambda x: x.category in category, self))
+
+    def ignore_tags(self, tags: List[str]) -> MealData:
+        """Ignores meals with any tags within 
+
+        Args:
+            tags (List[str]): tags to be ignored
+
+        Returns:
+            MealData: meal data
+        """
+        return MealData(filter(lambda x: not any(i in x.tags for i in tags), self))
+
+    def ignore_category(self, category: List[str]) -> MealData:
+        """Ignores meals with any categories given
+
+        Args:
+            category (List[str]): categories to be ignored
+
+        Returns:
+            MealData: meal data
+        """
+        return MealData(filter(lambda x: not x.category in category, self))
