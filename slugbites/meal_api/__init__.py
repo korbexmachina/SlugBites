@@ -67,8 +67,8 @@ class Meal:
         return f"{self.name}"
 
 
-def get_data() -> AllData:
-    return MealData.from_api(sync_pull(testing=False))
+def get_data(testing=False) -> AllData:
+    return MealData.from_api(sync_pull(testing=testing))
 
 
 class MealData(list):
@@ -199,3 +199,19 @@ class MealData(list):
             MealData: meal data
         """
         return MealData(filter(lambda x: not x.category in category, self))
+
+    def full_menu(self) -> Dict[str, List[str]]:
+        """Returns the full menu
+
+        Returns:
+            Dict[str, List[str]]: Dictionary with breakfast and everything else
+        """
+        r = {"Breakfast": [], "Everything Else": []}
+        for i in self:
+            if i.chow_time == "Breakfast" and i.name not in r['Breakfast']:
+                r['Breakfast'].append(i.name)
+            elif i.chow_time != "Breakfast" and i.name not in r['Everything Else']:
+                r['Everything Else'].append(i.name)
+        r['Breakfast'].sort()
+        r['Everything Else'].sort()
+        return r
