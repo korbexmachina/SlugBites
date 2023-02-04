@@ -4,7 +4,7 @@ License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/.
 """
 from __future__ import annotations
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Union
 from dataclasses import dataclass
 import requests
 import datetime
@@ -65,6 +65,16 @@ class Meal:
 
     def __str__(self) -> str:
         return f"{self.name}"
+
+    def json(self) -> Dict[str, Union[str, List]]:
+        return {
+            "name": self.name,
+            "date": str(self.date),
+            "tags": self.tags,
+            "location": self.location,
+            "chow_time": self.chow_time,
+            "category": self.category
+        }
 
 
 def get_data(testing=False) -> AllData:
