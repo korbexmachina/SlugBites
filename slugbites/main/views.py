@@ -7,7 +7,10 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import foodItem
-from meal_api import get_data
+from . import get_data
+
+food_data = get_data()
+
 # Create your views here.
 
 def index(response) -> HttpResponse:
@@ -17,4 +20,4 @@ def home(response) -> HttpResponse:
     return render(response, "main/home.html", {"food": get_data()})
 
 def food(response) -> HttpResponse:
-    return render(response, "main/food.html", {"food":get_data().full_menu()}) # This should display said items
+    return render(response, "main/food.html", {"food":food_data.full_menu()}) # This should display said items
