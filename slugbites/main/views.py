@@ -8,4 +8,4 @@ def index(response) -> HttpResponse:
 
 def food(response) -> HttpResponse:
     ls = str(foodItem) # This should be a list of all food items int the database
-    return render(response, "main/food.html" %(ls), {}) # This should display said items
+    return render(response, "main/food.html", {"food":ls}) # This should display said items
