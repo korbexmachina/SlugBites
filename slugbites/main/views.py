@@ -14,5 +14,4 @@ def index(response) -> HttpResponse:
     return render(response, "main/base.html", {})
 
 def food(response) -> HttpResponse:
-    ls = get_data() # This should be a list of all food items int the database
-    return render(response, "main/food.html", {"food":ls}) # This should display said items
+    return render(response, "main/food.html", {"food":get_data().data}) # This should display said items
