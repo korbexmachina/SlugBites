@@ -4,6 +4,9 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 
 <!DOCTYPE html>
 <html lang="en">
+{% load pwa %}
+{% progressive_web_app_meta %}
+<link rel="manifest" href="manifest.json">
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'slugbites/style.css' %}" />
