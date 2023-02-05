@@ -171,3 +171,8 @@ canvas.HallsContainer{
         width: 100%;
     }
 }
+
+/* List CSS */
+ul {
+    list-style-type: circle;
+}
