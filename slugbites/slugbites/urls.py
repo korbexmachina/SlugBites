@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("main.urls")),
     path('hello-webpack/', TemplateView.as_view(template_name='hello_webpack.html')),
+    path('', include('pwa.urls')),
 ]
