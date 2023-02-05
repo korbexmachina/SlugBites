@@ -11,6 +11,7 @@ import datetime
 import aiohttp
 import json
 import asyncio
+from .dining_hall_times import times
 #! usr/bin/env/python3
 """
 TODO: Docstring to describe what this file does
@@ -75,10 +76,6 @@ class Meal:
             "chow_time": self.chow_time,
             "category": self.category
         }
-
-
-def get_data(testing=False) -> AllData:
-    return MealData.from_api(sync_pull(testing=testing))
 
 
 class MealData(list):
@@ -250,3 +247,13 @@ class MealData(list):
             MealData: meal data
         """
         return MealData(filter(lambda x: s.lower() in x.name.lower(), self))
+
+    def current_or_next_meal(self, t: datetime.Datetime = datetime.datetime.now()) -> MealData:
+        day = t.weekday()
+        timedoubled = t.hour * 2 + t.minute // 30
+        # get current time and the current/meal
+        pass
+
+
+def get_data(testing=False) -> AllData:
+    return MealData.from_api(sync_pull(testing=testing))
