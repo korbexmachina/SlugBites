@@ -2,7 +2,8 @@
 License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 {% extends "main/base.html" %}
-<link rel="stylesheet" href="{{ STATIC_URL }}style.css" />
+{% load static %}
+<link rel="stylesheet" href="{% static 'slugbites/style.css' %}" />
     {% block content %}
         <h1 style="padding-top: 50px">Full Menu</h1>
         <ul>
