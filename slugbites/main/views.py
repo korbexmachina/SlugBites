@@ -3,6 +3,7 @@ This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/.
 """
+import datetime
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -19,7 +20,12 @@ def index(response) -> HttpResponse:
 
 
 def home(response) -> HttpResponse:
-    return render(response, "main/home.html", {})
+    curr = food_data.get_day().get_category("Entrees")
+    c9 = curr.get_location('College Nine/John R Lewis')
+    cow = curr.get_location("Cowell/Stevenson")
+    cro = curr.get_location("Crown/Merrill")
+    por = curr.get_location("Porter/Kresge")
+    return render(response, "main/home.html", {"C9": c9, "COW": cow, "CRO": cro, "POR": por})
 
 
 def food(response) -> HttpResponse:
@@ -28,14 +34,7 @@ def food(response) -> HttpResponse:
 
 
 def currentmeal(response) -> HttpResponse:
-    current_meal_data = food_data.current_meals()
-    d = {}
-    for items in current_meal_data:
-        if items.location in d:
-            d[items.location].append(items)
-            continue
-        d[items.location] = [items]
-    return render(response, "main/currentmeal.html", {"meals": d})
+    return HttpResponseRedirect("/home")
 
 
 def search(response) -> HttpResponse:

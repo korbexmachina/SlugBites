@@ -18,8 +18,10 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static','js', 'serviceworker.js')
-
+PWA_SERVICE_WORKER_PATH = os.path.join(
+    BASE_DIR, 'static', 'js', 'serviceworker.js')
+USE_TZ = True
+TIME_ZONE = "America/Los_Angeles"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -143,22 +145,22 @@ PWA_APP_ORIENTATION = 'any'
 PWA_APP_START_URL = '/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
 PWA_APP_ICONS = [
-	{
-		'src': 'static/slugbites/logo.svg',
-		'sizes': '160x160'
-	}
+    {
+        'src': 'static/slugbites/logo.svg',
+        'sizes': '160x160'
+    }
 ]
 PWA_APP_ICONS_APPLE = [
-	{
-		'src': 'static/slugbites/logo.svg',
-		'sizes': '160x160'
-	}
+    {
+        'src': 'static/slugbites/logo.svg',
+        'sizes': '160x160'
+    }
 ]
 PWA_APP_SPLASH_SCREEN = [
-	{
-		'src': 'static/slugbites/logo.svg',
-		'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
-	}
+    {
+        'src': 'static/slugbites/logo.svg',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
 ]
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'en-US'

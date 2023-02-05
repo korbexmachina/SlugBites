@@ -5,7 +5,6 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 {% extends "main/base.html" %}
 {% load static %}
 {% block content %}
-<link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="{% static 'slugbites/style.css' %}"/>
 <div>
     <div id = "siteTitle">
@@ -43,24 +42,42 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
  
 <div class ="row">
     <div class="column">
-        <h2>Cowell/Stevenson</h2>
-            <p></p>
+        <h2>College 9/JRL</h2>
+            <h3>{{C9.0.chow_time}}</h3>
+            {% for i in C9 %}
+            <h4>{{i.name}}</h4>
+            {% endfor %}
     </div>
 
     <div class="column">
-        <h2>Porter/Kresge</h2>
-            <p></p>
+        <h2>Cowell/Stevenson</h2>
+            <h3>{{COW.0.chow_time}}</h3>
+            {% for i in COW %}
+            <h4>{{i.name}}</h4>
+            {% endfor %}
     </div>
 
     <div class="column">
         <h2>Crown/Merrill</h2>
-            <p></p>
+            {% if CRO|length == 0 %}
+            <h3>Not Open</h3>
+            {% else %}
+            <h3>{{CRO.0.chow_time}}</h3>
+            {% for i in CRO %}
+            <h4>{{i.name}}</h4>
+            {% endfor %}
+            {% endif %}
     </div>
 
     <div class="column">
-        <h2>College 9/John R Lewis</h2>
-            <p></p>
+        <h2>Porter/Kresge</h2>
+            <h3>{{POR.0.chow_time}}</h3>
+            {% for i in POR %}
+            <h4>{{i.name}}</h4>
+            {% endfor %}
     </div>
+
+
 
 </div>
 <!-- <img src="{% static 'slugbites/frog.jpg' %}" alt="My image">-->

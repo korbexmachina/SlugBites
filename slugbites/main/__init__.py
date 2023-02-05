@@ -11,6 +11,7 @@ import datetime
 import aiohttp
 import json
 import asyncio
+from zoneinfo import ZoneInfo
 from .dining_hall_times import times
 #! usr/bin/env/python3
 """
@@ -127,7 +128,8 @@ class MealData(list):
         Returns:
             MealData: meal list
         """
-        target_day = datetime.date.today() + datetime.timedelta(days=offset)
+        target_day = (datetime.datetime.now(tz=ZoneInfo(
+            "America/Los_Angeles")) + datetime.timedelta(days=offset)).date()
         return MealData(filter(lambda x: x.date == target_day, self))
 
     def get_name(self, name: str) -> MealData:
@@ -248,7 +250,7 @@ class MealData(list):
         """
         return MealData(filter(lambda x: s.lower() in x.name.lower(), self))
 
-    def current_meals(self, t: datetime.Datetime = datetime.datetime.now()) -> MealData:
+    def current_meals(self, t: datetime.Datetime = datetime.datetime.now(tz=ZoneInfo("America/Los_Angeles"))) -> MealData:
         """Gets current/next meal of today
 
         Args:
@@ -260,12 +262,13 @@ class MealData(list):
         r = MealData()
         day_info = times[t.weekday()]
         time_info = t.hour * 2 + t.minute//30
-        offset = (t.date()-datetime.datetime.today().date()).days
+        offset = (
+            t.date()-datetime.datetime.now(tz=ZoneInfo("America/Los_Angeles")).date()).days
         for colleges in day_info:
             for ts, meals in day_info[colleges].items():
                 if time_info not in ts:
                     continue
-                if meals not in ['Closed', "Limited Options"]:
+                elif meals not in ['Closed', "Limited Options"]:
                     r.extend(self.get_chow_time(
                         meals).get_location(colleges).get_day(offset))
                 elif meals == "Closed" and time_info < 14 or meals == "Limited Options" and time_info < 23:
@@ -275,6 +278,15 @@ class MealData(list):
                     r.extend(self.get_chow_time("Lunch").get_location(
                         colleges).get_day(offset))
         return r
+
+    def format_to_meals(self) -> Dict[str, Dict]:
+        d = {}
+        for items in self:
+            if items.chow_time in d:
+                d[items.chow_time].append(items)
+            else:
+                d[items.location] = [items]
+        return d
 
     def format_to_colleges(self) -> Dict[str, Dict]:
         d = {}

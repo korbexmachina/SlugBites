@@ -3,10 +3,10 @@ License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 
 <!DOCTYPE html>
-<html lang="en">
 {% load pwa %}
 {% progressive_web_app_meta %}
 <link rel="manifest" href="manifest.json">
+<html lang="en">
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'slugbites/style.css' %}" />
@@ -18,7 +18,7 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 </head>
 <body>
     <div class="logo">
-        <img src="{% static 'slugbites/logo.svg' %}" alt="logo">
+        <a href="https://github.com/Korbexmachina/SlugBites"><img src="{% static 'slugbites/logo.svg' %}" alt="logo">
     </div>
 
     <div class="topnav">
