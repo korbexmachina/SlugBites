@@ -139,12 +139,14 @@ body {
 }*/
   
 #siteTitle {
+    position: relative;
     text-align: left;
     transition-property: color 1s;
 }
 
 #siteTitle:hover {
     color: #ECCC10;
+    transition-duration: 1s;
 }
 
 .categories {
@@ -171,13 +173,14 @@ body {
 .icon{
     width: 10%;
     height: 10%;
+    transition-property: box-shadow 1s, transform 1s;
 }
 
 .icon:hover{
     box-shadow: 2px 2px 5px #22879C;
     border-radius: 30px;
+    transform: scale(90%);
     transition-duration: 1s;
-    transition: height 0.4s ease-in-out;
 }
 
 #topRowIcons{
@@ -200,12 +203,12 @@ body {
     transition-property: color 2s;
 }
 
-
 .row{
     /* content: ""; */
     margin: 0 auto;
     position: relative;
     padding-top: 20px; 
+    text-overflow: wrap;
     text-align: center;
     justify-content: center;
     display: flex;
@@ -215,7 +218,6 @@ body {
 
 .column {
     margin: 10px;
-    text-overflow: wrap;
     float: left;
     width: 20%;
     height: 608px;
@@ -239,12 +241,11 @@ body {
     }
 
     .icon {
-        width: 100%
+        width: 100%;
     }
     
-
     .column {
-        width: 100%
+        width: 100%;
     }
 }
 
