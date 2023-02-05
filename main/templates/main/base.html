@@ -1,0 +1,47 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
+
+<!DOCTYPE html>
+<!-- {% load pwa %}
+{% progressive_web_app_meta %}
+<link rel="manifest" href="manifest.json"> -->
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'slugbites/style.css' %}" />
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slugbites</title>
+</head>
+<body>
+    <div class="logo">
+        <a href="https://github.com/Korbexmachina/SlugBites"><img src="{% static 'slugbites/logo.svg' %}" alt="logo">
+    </div>
+
+    <div class="topnav">
+        <a href="/currentmeal">Current Meal</a>
+        <a href="/food">Dishes</a>
+        <a href="/home">Home</a>
+    </div>
+    <div class="searchbar">
+        <form action="/results"><input type="text" name="search" placeholder="Search.."></form>
+    </div>
+    <!-- <script>
+        function submission(e){
+             if ((e && e.keyCode == 13) || e == 0) {
+                // alert("The form was submitted");
+                // window.location.href("")
+            }
+        }
+    </script> -->
+
+    <div id="content", name="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

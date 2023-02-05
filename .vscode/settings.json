@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/eecc677b-8c1c-4959-8294-ed26ad088225/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/SlugBites",
+    "appService.deploySubpath": "."
+}
