@@ -276,6 +276,15 @@ class MealData(list):
                         colleges).get_day(offset))
         return r
 
+    def format_to_colleges(self) -> Dict[str, Dict]:
+        d = {}
+        for items in self:
+            if items.location in d:
+                d[items.location].append(items)
+                continue
+            d[items.location] = [items]
+        return d
+
 
 def get_data(testing=False) -> MealData:
     return MealData.from_api(sync_pull(testing=testing))
