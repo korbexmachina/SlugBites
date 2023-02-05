@@ -1,2 +1,2 @@
-# Trash-Pandas
+# SlugBites
 CruzHacks 2023
