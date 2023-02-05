@@ -6,12 +6,26 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 {% block content %}
 <!-- <link rel="stylesheet" href="{% static 'slugbites/style.css' %}" /> -->
 <!-- dynamicly link refsheet somewhere -->
-{% if not meals|length %}
+{% with mealslength=meals|length %}
+{% if mealslength == 1 %}
+<link rel="stylesheet" href="{% static 'slugbites/divby1.css' %}">
+{% elif mealslength == 2 %}
+<link rel="stylesheet" href="{% static 'slugbites/divby2.css' %}">
+{% elif mealslength == 3 %}
+<link rel="stylesheet" href="{% static 'slugbites/divby3.css' %}">
+{% elif mealslength == 4 %}
+<link rel="stylesheet" href="{% static 'slugbites/divby4.css' %}">
+{% endif %}
+{% if not mealslength %}
 <div class="noMoreMeals">
-    <h1> There are no more meals for the day, consider looking at future days </h1>
+    <h1> There are no more meals for the day, consider looking at other days </h1>
 </div>
 {% else %}
-{% for colleges in meals %}
-<div class=""
+{% for colleges, meals in meals.items %}
+<div class="college{{forloop.counter0}}">
+<h1>{{colleges}}</h1>
+</div>
+{% endfor %}
 {% endif %}
+{% endwith %}
 {% endblock %}
