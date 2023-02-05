@@ -138,34 +138,78 @@ body {
     text-align: right;
 }*/
   
+#siteTitle {
+    text-align: left;
+    transition-property: color 1s;
+}
+
+#siteTitle:hover {
+    color: #ECCC10;
+}
+
 .categories {
     display: flex;
     justify-content: center;
     margin: auto;
     background-color: #a3c4e0;
-    width: 1315px;
+    width: 80%;
     height: 289px;
     border-radius: 18px;
 }
 
 .icons {
-    margin: 10px; 
+    margin: 5px; 
     float: left;
-    padding: 10px;
+    padding: 5px;
     justify-content: center;
     display: static;
     overflow: auto;
+    /*scrollbar-base-color: #a3c4e0;
+    scrollbar-arrow-color: #22879C;*/
+}
+
+.icon{
+    width: 10%;
+    height: 10%;
+}
+
+.icon:hover{
+    box-shadow: 2px 2px 5px #22879C;
+    border-radius: 30px;
+    transition-duration: 1s;
+    transition: height 0.4s ease-in-out;
+}
+
+#topRowIcons{
+    margin: 10px; 
+    column-gap: 5px;
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+    overflow: auto;
+    transition-property: box-shadow 2s;
+}
+
+#bottomRowIcons{
+    margin: 10px; 
+    column-gap: 5px;
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+    overflow: auto;
+    transition-property: color 2s;
 }
 
 
 .row{
     /* content: ""; */
+    margin: 0 auto;
     position: relative;
     padding-top: 20px; 
     text-align: center;
     justify-content: center;
     display: flex;
-    /* display: table; */
+    display: table;
     /* clear: both; */
 }
 
@@ -194,9 +238,10 @@ body {
         width: 100%;
     }
 
-    .icons {
+    .icon {
         width: 100%
     }
+    
 
     .column {
         width: 100%
