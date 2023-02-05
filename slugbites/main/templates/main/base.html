@@ -8,19 +8,6 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'slugbites/style.css' %}" />
 
-    <style type="text/css">
-        .navbar {
-            height:50px;
-            width:100%;
-            position: fixed;
-            z-index:1;
-            top:0;
-            left:0;
-            background-color:#111;
-            overflow-y: hidden;
-            padding-top:25px;
-        }
-
     </style>
 
     <meta charset="UTF-8">
@@ -33,7 +20,7 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
         <a class="active" href="/home">Home</a>
         <a href="/food">Menu</a>
         <a href="/currentmeal">Current Meal</a>
-        <a href="/about">About</a>
+        <input type="text" name="search" placeholder="Search..">
     </div>
     <div id="content", name="content">
         {% block content %}
