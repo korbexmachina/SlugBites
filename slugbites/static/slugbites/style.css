@@ -79,7 +79,7 @@
 /* Change the color of links on hover */
 .topnav a:hover {
     transition-timing-function: ease-in;
-    color: #211522;
+    color: #22879C;
     transition-duration: 1s;
 }
 
@@ -134,7 +134,7 @@
 
 .logo:hover{
     transition-timing-function: ease-in;
-    box-shadow: 2px 2px 2px #22879C;
+    box-shadow: 2px 2px 1.5px #22879C;
     transform: scale(90%);
     transition-duration: 1s;
 }
@@ -157,13 +157,12 @@ body {
 #siteTitle {
     position: relative;
     text-align: left;
-    transition-property: color 1s, text-shadow 1s;
+    transition-property: color 1s;
 }
 
 #siteTitle:hover {
     transition-timing-function: ease-in;
     color: #ECCC10;
-    text-shadow: 1px, 1px, 1px #22879C;
     transition-duration: 1s;
 }
 
@@ -240,6 +239,16 @@ body {
     height: 608px;
     background-color: #483849;
     border-radius: 18px;
+    padding: 15px;
+    transition-property: color 1s, box-shadow 1s;
+}
+
+.columnTwo {
+    margin: 10px;
+    float: left;
+    width: 608px;
+    height: 70%;
+    background-color: #483849;
     border-radius: 18px;
     padding: 15px;
     transition-property: color 1s, box-shadow 1s;
@@ -251,6 +260,21 @@ body {
     box-shadow: 2px 2px 2px #22879C;
     border-radius: 30px;
     transform: scale(90%);
+    transition-duration: 1s;
+}
+
+.columnTwo:hover {
+    transition-timing-function: ease-in;
+    color: #ECCC10;
+    box-shadow: 2px 2px 2px #22879C;
+    border-radius: 30px;
+    transform: scale(90%);
+    transition-duration: 1s;
+}
+
+h1:hover{
+    transition-timing-function: ease-in;
+    color: #ECCC10;
     transition-duration: 1s;
 }
 
@@ -271,7 +295,7 @@ body {
         width: 100%;
     }
     
-    .column {
+    .column{
         width: 100%;
     }
 }
