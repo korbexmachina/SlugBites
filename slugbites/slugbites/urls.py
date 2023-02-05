@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("main.urls")),
+    path('hello-webpack/', TemplateView.as_view(template_name='hello_webpack.html')),
 ]
