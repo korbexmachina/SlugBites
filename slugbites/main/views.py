@@ -7,10 +7,10 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/.
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import foodItem
-from . import get_data, current_meals
+from . import get_data
 
 food_data = get_data()
-current_meal_data = current_meals()
+current_meal_data = food_data.current_meals()
 
 # Create your views here.
 
@@ -29,4 +29,4 @@ def food(response) -> HttpResponse:
 
 
 def currentmeal(response) -> HttpResponse:
-    return render(response, "main/currentmeal.html", {})
+    return render(response, "main/currentmeal.html", {"meals", current_meal_data})
