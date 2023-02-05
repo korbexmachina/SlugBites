@@ -19,7 +19,7 @@ def index(response) -> HttpResponse:
 
 
 def home(response) -> HttpResponse:
-    return render(response, "main/home.html", {"food": food_data})
+    return render(response, "main/home.html", {})
 
 
 def food(response) -> HttpResponse:
