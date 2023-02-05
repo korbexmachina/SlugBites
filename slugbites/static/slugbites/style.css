@@ -169,6 +169,7 @@ body {
 }
 
 .column {
+    position: relative;
     margin: 10px;
     float: left;
     width: 20%;
