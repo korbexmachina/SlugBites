@@ -29,4 +29,11 @@ def food(response) -> HttpResponse:
 
 
 def currentmeal(response) -> HttpResponse:
-    return render(response, "main/currentmeal.html", {"meals", current_meal_data})
+    current_meal_data = food_data.current_meals()
+    d = {}
+    for items in current_meal_data:
+        if items.location in d:
+            d[items.location].append(items)
+            continue
+        d[items.location] = [items]
+    return render(response, "main/currentmeal.html", {"meals": d})
