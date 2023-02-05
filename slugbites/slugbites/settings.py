@@ -144,19 +144,19 @@ PWA_APP_START_URL = '/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
 PWA_APP_ICONS = [
 	{
-		'src': 'static/slugbites/frog.jpg',
+		'src': 'static/slugbites/logo.svg',
 		'sizes': '160x160'
 	}
 ]
 PWA_APP_ICONS_APPLE = [
 	{
-		'src': 'static/slugbites/frog.jpg',
+		'src': 'static/slugbites/logo.svg',
 		'sizes': '160x160'
 	}
 ]
 PWA_APP_SPLASH_SCREEN = [
 	{
-		'src': 'static/slugbites/frog.jpg',
+		'src': 'static/slugbites/logo.svg',
 		'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
 	}
 ]
