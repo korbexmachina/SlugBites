@@ -173,3 +173,6 @@ meal_api/__pycache__
 
 # will remove from gitignore later
 tests/
+
+*/*/__pycache__
+*/__pycache__
