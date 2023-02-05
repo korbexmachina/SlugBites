@@ -148,6 +148,16 @@ body {
     border-radius: 18px;
 }
 
+.icons {
+    margin: 10px; 
+    float: left;
+    padding: 10px;
+    justify-content: center;
+    display: static;
+    overflow: auto;
+}
+
+
 .row{
     /* content: ""; */
     padding-top: 20px; 
@@ -169,7 +179,6 @@ body {
     padding: 15px;
 }
 
-
 @media screen and (max-width:600px){
     .topnav a {
         width: 100%;
@@ -178,8 +187,13 @@ body {
     .searchbar {
         width: 100%;
     }
+    
     .categories {
         width: 100%;
+    }
+
+    .icons {
+        width: 100%
     }
 
     .column {
