@@ -149,27 +149,30 @@ body {
     position: relative;
     float: left;
     width: 20%;
-    padding: 15px;
     background-color: #483849;
     border-radius: 18px;
+    padding: 15px;
 }
 
-p.HallsContainer{
+canvas.HallsContainer{
     width: 1596px; 
     height: 608px;
 }
-    
 
 @media screen and (max-width:600px){
     .topnav a {
         width: 100%;
     }
-
+    
     .searchbar {
         width: 100%;
     }
-
     .column {
         width: 100%;
     }
+}
+
+/* List CSS */
+ul {
+    list-style-type: circle;
 }
