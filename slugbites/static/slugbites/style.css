@@ -160,6 +160,7 @@ body {
 
 .row{
     /* content: ""; */
+    position: relative;
     padding-top: 20px; 
     text-align: center;
     justify-content: center;
@@ -169,8 +170,8 @@ body {
 }
 
 .column {
-    position: relative;
     margin: 10px;
+    text-overflow: wrap;
     float: left;
     width: 20%;
     height: 608px;
