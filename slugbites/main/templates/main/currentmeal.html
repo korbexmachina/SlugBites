@@ -4,12 +4,14 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 {% extends "main/base.html" %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'slugbites/style.css' %}" />
+<!-- <link rel="stylesheet" href="{% static 'slugbites/style.css' %}" /> -->
+<!-- dynamicly link refsheet somewhere -->
 {% if not meals|length %}
 <div class="noMoreMeals">
     <h1> There are no more meals for the day, consider looking at future days </h1>
 </div>
 {% else %}
-<h1>This is a test</h1>
+{% for colleges in meals %}
+<div class=""
 {% endif %}
 {% endblock %}
