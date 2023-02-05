@@ -11,4 +11,5 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("home/", views.home, name="home"),
     path("food/", views.food, name="food"),
+    path("currentmeal/", views.food, name="currentmeal")
 ]

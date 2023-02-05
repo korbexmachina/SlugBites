@@ -25,16 +25,32 @@
     background-color: #04AA6D;
     color: white;
 }
+.searchbar{
+    width: 100%;
+    /* margin: auto; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 10px;
+}
 
-input[type=text] {
-    width: 130px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+.searchbar input[type=text]{
+    /* height: 40px; */
+    /* width: 60%;
+    margin: auto; */
+    height: 30px;
+    width: 60%;
+    border-radius: 18px;
+    text-align: center;
+    background-color: #a3c4e0;
+    color: #384849;
+    /* transition: width 0.4s ease-in-out;  */
 }
 
 /* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-    width: 100%;
+.searchbar input[type=text]:focus {
+    height: 45px;
+    transition: height 0.4s ease-in-out;
 }
 
 img{
@@ -51,4 +67,9 @@ img{
     background-color: #000000;
     overflow-y: hidden;
     padding-top: 25px;
+}
+
+body {
+    background-color: #211522;
+    color: #eef2f6;
 }
