@@ -38,8 +38,12 @@ def currentmeal(response) -> HttpResponse:
 
 
 def search(response) -> HttpResponse:
-    print(response.GET)
+    # print(response.GET)
     results = food_data.search(response.GET['search'])
+    c9 = results.get_location('College Nine/John R Lewis').format_to_day_meal()
+    cow = results.get_location("Cowell/Stevenson").format_to_day_meal()
+    cro = results.get_location("Crown/Merrill").format_to_day_meal()
+    por = results.get_location("Porter/Kresge").format_to_day_meal()
     print(results)
-    return render(response, "main/searchresults.html", {"meals": results})
+    return render(response, "main/searchresults.html", {"C9": c9, "COW": cow, "CRO": cro, "POR": por})
     pass

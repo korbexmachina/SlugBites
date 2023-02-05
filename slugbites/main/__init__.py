@@ -297,6 +297,16 @@ class MealData(list):
             d[items.location] = [items]
         return d
 
+    def format_to_day_meal(self) -> Dict[str, Dict]:
+        d = {}
+        for items in self:
+            fstr = f"{items.date} {items.chow_time}"
+            if fstr in d:
+                d[fstr].append(items)
+            else:
+                d[fstr] = [items]
+        return d
+
 
 def get_data(testing=False) -> MealData:
     return MealData.from_api(sync_pull(testing=testing))
