@@ -1,6 +1,15 @@
-div {
-    padding-top: 150px;
-    padding-left: 150px;
-    background-color: black;
-    color: bisque;
+.frogjpg {
+    height: auto;
+    width: 30%;
+}
+.navbar {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-y: hidden;
+    padding-top: 25px;
 }
