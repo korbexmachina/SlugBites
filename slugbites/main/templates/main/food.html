@@ -1,18 +1,18 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
-
 {% extends "main/base.html" %}
+<link rel="stylesheet" href="{{ STATIC_URL }}style.css" />
     {% block content %}
         <h1 style="padding-top: 50px">Full Menu</h1>
-        <div>
-            <ul>
-                {% for meal, items in food.items %}
-                    <h2>{{meal}}</h2>
-                    {% for item in items %}
-                        <li>{{item}}</li>
-                    {% endfor %}
+        <ul>
+            {% for meal, items in food.items %}
+            <div>
+                <h2>{{meal}}</h2>
+                {% for item in items %}
+                <li>{{item}}</li>
                 {% endfor %}
-            </ul>
-        </div>
+            </div>
+            {% endfor %}
+        </ul>
     {% endblock %}
