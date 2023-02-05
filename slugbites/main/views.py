@@ -13,11 +13,15 @@ food_data = get_data()
 
 # Create your views here.
 
+
 def index(response) -> HttpResponse:
     return HttpResponseRedirect("/home")
 
+
 def home(response) -> HttpResponse:
-    return render(response, "main/home.html", {"food": get_data()})
+    return render(response, "main/home.html", {"food": food_data})
+
 
 def food(response) -> HttpResponse:
-    return render(response, "main/food.html", {"food":food_data.full_menu()}) # Displays all possible menu items
+    # Displays all possible menu items
+    return render(response, "main/food.html", {"food": food_data.full_menu()})
