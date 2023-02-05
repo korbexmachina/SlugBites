@@ -89,7 +89,7 @@
     color: white;
 } */
 .searchbar{
-    width: 100%;
+    width: 70%;
     /* margin: auto; */
     display: flex;
     justify-content: center;
@@ -102,7 +102,7 @@
     /* width: 60%;
     margin: auto; */
     height: 30px;
-    width: 70%;
+    width: 80%;
     border-radius: 18px;
     text-align: center;
     background-color: #a3c4e0;
