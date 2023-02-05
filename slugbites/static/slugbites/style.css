@@ -230,10 +230,10 @@ body {
     text-overflow: wrap;
     text-align: center;
     justify-content: center;
+    display: table;
     display: flex;
-    /* display: table; */
     width: 100%;
-    /* clear: both; */
+    clear: both;
 }
 
 .column {

@@ -285,7 +285,7 @@ class MealData(list):
             if items.chow_time in d:
                 d[items.chow_time].append(items)
             else:
-                d[items.location] = [items]
+                d[items.chow_time] = [items]
         return d
 
     def format_to_colleges(self) -> Dict[str, Dict]:

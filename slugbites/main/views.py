@@ -21,10 +21,10 @@ def index(response) -> HttpResponse:
 
 def home(response) -> HttpResponse:
     curr = food_data.get_day().get_category("Entrees")
-    c9 = curr.get_location('College Nine/John R Lewis')
-    cow = curr.get_location("Cowell/Stevenson")
-    cro = curr.get_location("Crown/Merrill")
-    por = curr.get_location("Porter/Kresge")
+    c9 = curr.get_location('College Nine/John R Lewis').format_to_meals()
+    cow = curr.get_location("Cowell/Stevenson").format_to_meals()
+    cro = curr.get_location("Crown/Merrill").format_to_meals()
+    por = curr.get_location("Porter/Kresge").format_to_meals()
     return render(response, "main/home.html", {"C9": c9, "COW": cow, "CRO": cro, "POR": por})
 
 

@@ -42,18 +42,22 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
  
 <div class ="row">
     <div class="column">
-        <h2>College 9/JRL</h2>
-            <h3>{{C9.0.chow_time}}</h3>
-            {% for i in C9 %}
+        <h2><b>College 9/JRL</b></h2>
+            {% for t, l in C9.items %}
+            <h3>{{t}}</h3>
+            {% for i in l %}
             <h4>{{i.name}}</h4>
+            {% endfor %}
             {% endfor %}
     </div>
 
     <div class="column">
         <h2>Cowell/Stevenson</h2>
-            <h3>{{COW.0.chow_time}}</h3>
-            {% for i in COW %}
+            {% for t, l in COW.items %}
+            <h3>{{t}}</h3>
+            {% for i in l %}
             <h4>{{i.name}}</h4>
+            {% endfor %}
             {% endfor %}
     </div>
 
@@ -62,18 +66,22 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
             {% if CRO|length == 0 %}
             <h3>Not Open</h3>
             {% else %}
-            <h3>{{CRO.0.chow_time}}</h3>
-            {% for i in CRO %}
+            {% for t, l in C9.items %}
+            <h3>{{t}}</h3>
+            {% for i in l %}
             <h4>{{i.name}}</h4>
+            {% endfor %}
             {% endfor %}
             {% endif %}
     </div>
 
     <div class="column">
         <h2>Porter/Kresge</h2>
-            <h3>{{POR.0.chow_time}}</h3>
-            {% for i in POR %}
+            {% for t, l in C9.items %}
+            <h3>{{t}}</h3>
+            {% for i in l %}
             <h4>{{i.name}}</h4>
+            {% endfor %}
             {% endfor %}
     </div>
 
