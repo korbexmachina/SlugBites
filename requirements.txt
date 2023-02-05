@@ -7,6 +7,7 @@ autopep8==2.0.1
 certifi==2022.12.7
 charset-normalizer==2.1.1
 Django==4.1.6
+django-pwa==1.1.0
 frozenlist==1.3.3
 idna==3.4
 multidict==6.0.4
