@@ -137,27 +137,38 @@ body {
 /*h2 {
     text-align: right;
 }*/
-    
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
+  
+.categories {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: #a3c4e0;
+    width: 1315px;
+    height: 289px;
+    border-radius: 18px;
+}
+
+.row{
+    /* content: ""; */
+    padding-top: 20px; 
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    /* display: table; */
+    /* clear: both; */
 }
 
 .column {
-    text-align: center;
-    position: relative;
+    margin: 10px;
     float: left;
     width: 20%;
+    height: 608px;
     background-color: #483849;
+    border-radius: 18px;
     border-radius: 18px;
     padding: 15px;
 }
 
-canvas.HallsContainer{
-    width: 1596px; 
-    height: 608px;
-}
 
 @media screen and (max-width:600px){
     .topnav a {
@@ -167,8 +178,12 @@ canvas.HallsContainer{
     .searchbar {
         width: 100%;
     }
-    .column {
+    .categories {
         width: 100%;
+    }
+
+    .column {
+        width: 100%
     }
 }
 
