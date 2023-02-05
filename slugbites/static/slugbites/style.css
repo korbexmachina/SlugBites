@@ -1,6 +1,6 @@
 img{
-    height: 100px;
-    width: 30px;
+    height: 100%;
+    width: 100%;
 }
 .navbar {
     height: 50px;
@@ -9,7 +9,7 @@ img{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #000000;
     overflow-y: hidden;
     padding-top: 25px;
 }

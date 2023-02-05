@@ -5,9 +5,10 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 {% extends "main/base.html" %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="% static 'slugbites/style.css' %"/>
+@import "slugbites/frog.jpg"
+    <link rel="stylesheet" href="{% static 'slugbites/style.css' %}"/>
 <div>
-    <h1>SlugBites</h1>
+    <h2>SlugBites</h2>
 </div>
 <img src="{% static 'slugbites/frog.jpg' %}" alt="My image">
 {% endblock %}
