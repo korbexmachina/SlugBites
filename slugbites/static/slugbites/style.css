@@ -117,10 +117,26 @@
     height: 45px;
     transition: height 0.4s ease-in-out;
 }
+
+.searchbar:hover {
+    transition-timing-function: ease-in;
+    color: #ECCC10;
+    box-shadow: 1px, 1px, 1px #22879C;
+    transition-duration: 1s;
+}
+
 .logo{
     width: 12%;
     height : 16%;
     float: left;
+    border-radius: 360px;
+}
+
+.logo:hover{
+    transition-timing-function: ease-in;
+    box-shadow: 2px 2px 2px #22879C;
+    transform: scale(90%);
+    transition-duration: 1s;
 }
 
 /* img{
@@ -141,11 +157,13 @@ body {
 #siteTitle {
     position: relative;
     text-align: left;
-    transition-property: color 1s;
+    transition-property: color 1s, text-shadow 1s;
 }
 
 #siteTitle:hover {
+    transition-timing-function: ease-in;
     color: #ECCC10;
+    text-shadow: 1px, 1px, 1px #22879C;
     transition-duration: 1s;
 }
 
@@ -177,6 +195,7 @@ body {
 }
 
 .icon:hover{
+    transition-timing-function: ease-in;
     box-shadow: 2px 2px 5px #22879C;
     border-radius: 30px;
     transform: scale(90%);
@@ -190,7 +209,6 @@ body {
     justify-content: center;
     display: flex;
     overflow: auto;
-    transition-property: box-shadow 2s;
 }
 
 #bottomRowIcons{
@@ -200,7 +218,6 @@ body {
     justify-content: center;
     display: flex;
     overflow: auto;
-    transition-property: color 2s;
 }
 
 .row{
@@ -225,6 +242,16 @@ body {
     border-radius: 18px;
     border-radius: 18px;
     padding: 15px;
+    transition-property: color 1s, box-shadow 1s;
+}
+
+.column:hover {
+    transition-timing-function: ease-in;
+    color: #ECCC10;
+    box-shadow: 2px 2px 2px #22879C;
+    border-radius: 30px;
+    transform: scale(90%);
+    transition-duration: 1s;
 }
 
 @media screen and (max-width:600px){
