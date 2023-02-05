@@ -11,6 +11,7 @@ import datetime
 import aiohttp
 import json
 import asyncio
+from dining_hall_times import times
 #! usr/bin/env/python3
 """
 TODO: Docstring to describe what this file does
@@ -75,10 +76,6 @@ class Meal:
             "chow_time": self.chow_time,
             "category": self.category
         }
-
-
-def get_data(testing=False) -> AllData:
-    return MealData.from_api(sync_pull(testing=testing))
 
 
 class MealData(list):
@@ -162,7 +159,7 @@ class MealData(list):
         """Get only meals with all tags within tags
 
         Args:
-            tags (List[str]): list of tags we want 
+            tags (List[str]): list of tags we want
 
         Returns:
             MealData: meal lsit
@@ -203,7 +200,7 @@ class MealData(list):
         return MealData(filter(lambda x: x.category in category, self))
 
     def ignore_tags(self, tags: List[str]) -> MealData:
-        """Ignores meals with any tags within 
+        """Ignores meals with any tags within
 
         Args:
             tags (List[str]): tags to be ignored
@@ -250,3 +247,38 @@ class MealData(list):
             MealData: meal data
         """
         return MealData(filter(lambda x: s.lower() in x.name.lower(), self))
+
+    def current_meals(self, t: datetime.Datetime = datetime.datetime.now()) -> MealData:
+        """Gets current/next meal of today
+
+        Args:
+            t (datetime.Datetime, optional): datetime object. Defaults to datetime.datetime.now().
+
+        Returns:
+            MealData: Mealdata list
+        """
+        r = MealData()
+        day_info = times[t.weekday()]
+        time_info = t.hour * 2 + t.minute//30
+        offset = (t.date()-datetime.datetime.today().date()).days
+        for colleges in day_info:
+            for ts, meals in day_info[colleges].items():
+                if time_info not in ts:
+                    continue
+                if meals not in ['Closed', "Limited Options"]:
+                    r.extend(self.get_chow_time(
+                        meals).get_location(colleges).get_day(t.date()))
+                elif meals == "Closed" and time_info < 14:
+                    r.extend(self.get_chow_time("Breakfast").get_location(
+                        colleges).get_day(offset))
+                elif meals == "Limited Options" and time_info < 23:
+                    r.extend(self.get_chow_time("Breakfast").get_location(
+                        colleges).get_day(offset))
+                elif meals == "Limited Options":
+                    r.extend(self.get_chow_time("Lunch").get_location(
+                        colleges).get_day(offset))
+        return r
+
+
+def get_data(testing=False) -> AllData:
+    return MealData.from_api(sync_pull(testing=testing))
