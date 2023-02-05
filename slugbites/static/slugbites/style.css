@@ -228,6 +228,7 @@ body {
     position: relative;
     padding-top: 20px; 
     text-overflow: wrap;
+    overflow-wrap: break-word;
     text-align: center;
     justify-content: center;
     display: table;
@@ -235,7 +236,19 @@ body {
     width: 100%;
     clear: both;
 }
-
+.rowTwo {
+    /* content: ""; */
+    margin: 0 auto;
+    position: relative;
+    padding-top: 20px;
+    text-overflow: wrap;
+    text-align: center;
+    justify-content: center;
+    display: table;
+    display: flex;
+    width: 100%;
+    clear: both;
+}
 .column {
     margin: 10px;
     float: left;
@@ -245,17 +258,20 @@ body {
     border-radius: 18px;
     padding: 15px;
     transition-property: color 1s, box-shadow 1s;
+    overflow: hidden;
 }
 
 .columnTwo {
     margin: 10px;
     float: left;
-    width: 608px;
-    height: 70%;
+    width: 50%;
+    height: 105%;
     background-color: #483849;
     border-radius: 18px;
     padding: 15px;
     transition-property: color 1s, box-shadow 1s;
+    /* display: flex; */
+    text-align: left;
 }
 
 .column:hover {

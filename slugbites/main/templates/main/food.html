@@ -8,16 +8,14 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
     <h1 style="padding-top: 50px">Full Menu</h1>
     <ul>
         {% for meal, items in food.items %}
-        <div>
-            <div class ="row">
-                <div class="columnTwo">
-                    <h2>{{meal}}</h2>
-                    {% for item in items %}
-                    <li>{{item}}</li>
-                    {% endfor %}
-                </div>
+        <div class ="rowTwo">
+            <div class="columnTwo">
+                <h2>{{meal}}</h2>
+                {% for item in items %}
+                <li>{{item}}</li>
+                {% endfor %}
+            </div>
                     
-        </div>
         {% endfor %}
     </ul>
 {% endblock %}
