@@ -10,7 +10,6 @@ from .models import foodItem
 from . import get_data
 
 food_data = get_data()
-current_meal_data = food_data.current_meals()
 
 # Create your views here.
 
@@ -37,3 +36,11 @@ def currentmeal(response) -> HttpResponse:
             continue
         d[items.location] = [items]
     return render(response, "main/currentmeal.html", {"meals": d})
+
+
+def search(response) -> HttpResponse:
+    print(response.GET)
+    results = food_data.search(response.GET['search'])
+    print(results)
+    return render(response, "main/searchresults.html", {"meals": results})
+    pass

@@ -23,8 +23,17 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
         <a href="/home">Home</a>
     </div>
     <div class="searchbar">
-        <input type="text" name="search" placeholder="Search..">
+        <form action="/results"><input type="text" name="search" placeholder="Search.."></form>
     </div>
+    <!-- <script>
+        function submission(e){
+             if ((e && e.keyCode == 13) || e == 0) {
+                // alert("The form was submitted");
+                // window.location.href("")
+            }
+        }
+    </script> -->
+
     <div id="content", name="content">
         {% block content %}
 

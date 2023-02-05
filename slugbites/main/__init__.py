@@ -267,11 +267,8 @@ class MealData(list):
                     continue
                 if meals not in ['Closed', "Limited Options"]:
                     r.extend(self.get_chow_time(
-                        meals).get_location(colleges).get_day(t.date()))
-                elif meals == "Closed" and time_info < 14:
-                    r.extend(self.get_chow_time("Breakfast").get_location(
-                        colleges).get_day(offset))
-                elif meals == "Limited Options" and time_info < 23:
+                        meals).get_location(colleges).get_day(offset))
+                elif meals == "Closed" and time_info < 14 or meals == "Limited Options" and time_info < 23:
                     r.extend(self.get_chow_time("Breakfast").get_location(
                         colleges).get_day(offset))
                 elif meals == "Limited Options":
@@ -280,5 +277,5 @@ class MealData(list):
         return r
 
 
-def get_data(testing=False) -> AllData:
+def get_data(testing=False) -> MealData:
     return MealData.from_api(sync_pull(testing=testing))
