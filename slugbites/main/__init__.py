@@ -11,7 +11,7 @@ import datetime
 import aiohttp
 import json
 import asyncio
-from dining_hall_times import times
+from .dining_hall_times import times
 #! usr/bin/env/python3
 """
 TODO: Docstring to describe what this file does
