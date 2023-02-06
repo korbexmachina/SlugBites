@@ -4,7 +4,6 @@ A web app that allows ucsc students to see what is currently available in the di
 ---
 
 ## Current Features
----
 - Homepage which shows todays entrees, seperated by mealtime and sorted by dining hall.
 
 - Search Bar which allows students to search for their favorite dishes and see when and where they will be available in the next week.
@@ -14,7 +13,9 @@ A web app that allows ucsc students to see what is currently available in the di
 ---
 
 ## Roadmap
----
 - Icons will filter by allergens and dietary restrictions
 
 - Native mobile app
+
+Created by:
+Korben Tompkin, Cheuk Pui Lam, and Kayla Barker
