@@ -13,6 +13,8 @@ A web app that allows ucsc students to see what is currently available in the di
 ---
 
 ## Roadmap
+- Scrollable menus
+
 - Icons will filter by allergens and dietary restrictions
 
 - Native mobile app
