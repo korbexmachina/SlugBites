@@ -34,7 +34,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     "slugbites.azurewebsites.net",
-    "slugbites.tech"
+    "slugbites.tech",
+    "127.0.0.1"
 ]
 
 
