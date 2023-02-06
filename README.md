@@ -1,4 +1,4 @@
-# SlugBites
+# [SlugBites](https://slugbites.azurewebsites.net/home/)
 A web app that allows ucsc students to see what is currently available in the dining halls, as well as plan ahead to get their favorite dishes.
 
 ---
