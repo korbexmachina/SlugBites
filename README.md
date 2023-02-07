@@ -1,3 +1,4 @@
+[![](https://img.shields.io/website?down_color=red&down_message=offline&label=SlugBites&up_message=online&url=https%3A%2F%2Fslugbites.azurewebsites.net%2Fhome%2F)](https://slugbites.azurewebsites.net/home/)
 # [SlugBites](https://slugbites.azurewebsites.net/home/)
 A web app that allows ucsc students to see what is currently available in the dining halls, as well as plan ahead to get their favorite dishes.
 
