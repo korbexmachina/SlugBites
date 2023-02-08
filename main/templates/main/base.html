@@ -3,9 +3,9 @@ License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 
 <!DOCTYPE html>
-<!-- {% load pwa %}
+{% load pwa %}
 {% progressive_web_app_meta %}
-<link rel="manifest" href="manifest.json"> -->
+<link rel="manifest" href="manifest.json">
 <html lang="en">
 <head>
     {% load static %}
@@ -29,15 +29,6 @@ file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
     <div class="searchbar">
         <form action="/results"><input type="text" name="search" placeholder="Search.."></form>
     </div>
-    <!-- <script>
-        function submission(e){
-             if ((e && e.keyCode == 13) || e == 0) {
-                // alert("The form was submitted");
-                // window.location.href("")
-            }
-        }
-    </script> -->
-
     <div id="content", name="content">
         {% block content %}
 
