@@ -12,8 +12,7 @@ from . import get_data
 
 food_data = get_data()
 
-# Create your views here.
-
+# Views
 
 def index(response) -> HttpResponse:
     return HttpResponseRedirect("/home")
