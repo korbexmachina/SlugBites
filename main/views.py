@@ -10,7 +10,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import foodItem
 from . import get_data
 
-food_data = get_data()
+food_data = get_data() # caching food data
 
 # Views
 
@@ -18,7 +18,7 @@ def index(response) -> HttpResponse:
     return HttpResponseRedirect("/home")
 
 
-def home(response) -> HttpResponse:
+def home(response) -> HttpResponse:   
     curr = food_data.get_day().get_category("Entrees")
     c9 = curr.get_location('College Nine/John R Lewis').format_to_meals()
     cow = curr.get_location("Cowell/Stevenson").format_to_meals()
@@ -28,7 +28,7 @@ def home(response) -> HttpResponse:
 
 
 def food(response) -> HttpResponse:
-    # Displays all possible menu items
+    # Displays a list of all possible menu items
     return render(response, "main/food.html", {"food": food_data.full_menu()})
 
 
@@ -38,7 +38,7 @@ def currentmeal(response) -> HttpResponse:
 
 def search(response) -> HttpResponse:
     # print(response.GET)
-    results = food_data.search(response.GET['search'])
+    results = food_data.search(response.GET['search']) # Accepts the search term, results is a MealData object
     c9 = results.get_location('College Nine/John R Lewis').format_to_day_meal()
     cow = results.get_location("Cowell/Stevenson").format_to_day_meal()
     cro = results.get_location("Crown/Merrill").format_to_day_meal()
