@@ -20,7 +20,7 @@ A web app that allows ucsc students to see what is currently available in the di
 
 - Native mobile app
 
-Note: SlugBites is currently in active development
-
 Created by:
 Korben Tompkin, Cheuk Pui Lam, and Kayla Barker
+
+Note: SlugBites is currently in active development
