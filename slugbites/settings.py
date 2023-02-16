@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
-    'slugbites_api.apps.Slugbites_apiConfig',
+    'slugbites_api.apps.SlugbitesApiConfig',
     'pwa'
 ]
 
